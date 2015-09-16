@@ -1,1 +1,4 @@
 region*
+example/*
+
+!example/institutes_list.txt
