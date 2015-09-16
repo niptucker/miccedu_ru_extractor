@@ -1,47 +1,113 @@
-#!/bin/sh
+#!/bin/bash
 
-# Скрипт для извлечения значений показателей из определенных веб-страниц Мониторинга miccedu.ru
-#
-# Извлечения данных происходит из заранее определенных веб-страниц
-# Список веб-страниц хранится в файле
-#
-# На вход подаются:
-# - путь к файлу, в котором перечислены адреса веб-страниц вузов, из которых нужно извлечь значения показателей.
-# - код показателя (на веб-странице находится в графе "№")
-#
-# Пример запуска: ./extract_from_file.sh institutes_list.txt I9.1
+#################
+# Документация #
+#################
+if [ $# -eq 0 ]
+  then
+    echo "
+Скрипт для извлечения значений показателей из определенных веб-страниц Мониторинга miccedu.ru
 
-filename=$1
-dirname=`echo $filename | cut -d'.' -f1`
+Извлечения данных происходит из заранее определенных веб-страниц
+Список веб-страниц хранится в файле
+
+На вход подаются:
+1) путь к файлу, в котором перечислены адреса веб-страниц вузов, из которых нужно извлечь значения показателей.
+   (пример: institutes_list.txt)
+2) код показателя (на веб-странице находится в графе '№')
+   (пример: I9.1)
+
+Пример запуска: ./extract_from_file.sh institutes_list.txt I9.1
+"
+    exit
+fi
+
+#############
+# Настройка #
+#############
+totalstart="\033[32m";
+totalend="\033[0m";
+
+msgend="$totalend\033[35m";
+
+errorstart="$totalend\033[31m";
+successstart="$totalend\033[32m";
+notifystart="$totalend\033[37m";
+
+DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+
+#########################
+# Проверка зависимостей #
+#########################
+command -v recode >/dev/null 2>&1 || { echo -e >&2 $errorstart "\nТребуется программа 'recode'. Установите ее с помощью команды\n\n\tsudo apt-get install recode\n" $totalend; exit 1; }
+command -v parallel >/dev/null 2>&1 || { echo -e >&2 $errorstart "\nТребуется программа 'parallel'. Установите ее с помощью команды\n\n\tsudo apt-get install parallel\n" $totalend; exit 1; }
+
+############################
+# Обработка входных данных #
+############################
+filename=`readlink -e $1`
 criterion=$2
 
+echo -e $totalstart
+echo -e $notifystart"Файл с ссылками на страницы вузов: $filename" $msgend
+echo -e $notifystart"Код показателя: $criterion" $msgend
 
-# Скачать страницу региона с вузами
-mkdir $dirname
-cd $dirname
+dirname=$(dirname "$filename")
+echo -e $notifystart"Каталог региона: $dirname" $msgend
 
-csv="$2.csv"
-echo -n > $csv
-csv="../$csv"
+instsdir=$dirname/insts
+mkdir -p $instsdir
+rm $instsdir/*
 
-mkdir insts
-cd insts
+######################
+# Создание CSV-файла #
+######################
+csv="$dirname/$2.csv"
+echo -e -n > "$csv"
 
-# Выбрать все ссылки на вузы и скачать их в соседнюю папку
-cat ../../$filename | recode cp1251...utf8 | grep -E '(inst_|filial_)' | awk -F\" '{print $1}' | xargs wget
+################################
+# Обход всех ссылок вузов
+################################
+# delimiter=";"
+delimiter="\t"
+echo -e $notifystart"Просматриваем файлы каждого вуза и заполняем CSV-файл $csv:" $msgend
+while read -r link; do
+    echo -e $notifystart"Ссылка $link: " $msgend
+
+    ################################
+    # Скачивание всех ссылок вузов #
+    ################################
+    linkname=$(basename $link)
+    linkfile=$instsdir/$linkname
+    wget -nv "$link" -O "$linkfile"
+
+    ################################
+    # Записываем название вуза и разделитель #
+    ################################
+    name=`cat $linkfile | recode -f cp1251..utf8 | sed 's/[\ \n\r\s]\+/\ /g' | grep 'Наименование образовательной организации' -A10 | grep 'Регион,' -m1 -B10 | grep -v -E '(Наименование образовательной организации)' | tr "\\n\"" " " | sed 's/^ *//;s/ *$//' | sed 's/;/,/g' | sed 's/[\ \n\r\s]\+/\ /g' | sed 's|<[^>]*>||g' | sed 's/Регион,адрес//g' | xargs`
+    echo -e -n $name >> $csv
+    echo -e -n $delimiter >> $csv
+
+    echo -e $successstart"Вуз '$name' " $msgend
 
 
-for file in *.htm; do
-    echo "Process $file to $csv..."
-
-    lynx --dump $file | sed 's/[\ \n\r\s]\+/\ /g' | grep 'Наименование образовательной организации' -A10 | grep 'Регион,' -m1 -B10 | grep -v -E '(Наименование образовательной организации|Регион,)' | tr "\\n\"" " " | sed 's/^ *//;s/ *$//' | sed 's/;/,/g' | sed 's/[\ \n\r\s]\+/\ /g' >> $csv
-    echo -n ';' >> $csv
-    echo -n $file >> $csv
-    echo -n ';' >> $csv
-    lynx --dump $file | grep $criterion -A20 | sed ':a;N;$!ba;s/\n/|/g' | sed -e 's/||\+/~/g' | awk -F~ '{print $4}' | sed 's/^ *//;s/ *$//' >> $csv
-
-    echo "$file done!";
-done;
+    ######################################
+    # Записываем имя ссылки и разделитель #
+    ######################################
+    echo -e -n $link >> $csv
+    echo -e -n $delimiter >> $csv
 
 
+    ###################################################################
+    # Записываем значение показателя и перенос строки (автоматически) #
+    ###################################################################
+    value=`cat $linkfile | recode -f cp1251..utf8 | grep $criterion -A20 | sed 's|<[^>]*>|~|g' | xargs | awk -F~ '{print $9}'`
+    echo -e $value >> $csv
 
+    echo -e $successstart"$criterion -> $value " $msgend
+done < "$filename"
+
+echo -e $totalend
+
+# echo -e "\n\n"
+# cat $csv

@@ -1,50 +1,83 @@
-#!/bin/sh
+#!/bin/bash
 
-# Скрипт для извлечения значений показателей из всех веб-страниц региона Мониторинга miccedu.ru
-#
-# Извлечения данных происходит из всех веб-страниц определенного региона
-# Адрес веб-страницы региона и код показателя, который нужно извлечь,
-# передаются как параметры вызова скрипта.
-#
-# На вход подаются:
-# - адрес веб-страницы региона, на которой есть ссылки на вузы, из которых нужно извлечь значения показателей.
-# - код показателя (на веб-странице находится в графе "№")
-#
-# Пример запуска: ./extract_from_web.sh http://miccedu.ru/monitoring/materials/reg_10201.htm I9.1
+#################
+# Документация #
+#################
+if [ $# -eq 0 ]
+  then
+    echo "
+Скрипт для извлечения значений показателей из всех веб-страниц региона Мониторинга miccedu.ru
 
+Извлечения данных происходит из всех веб-страниц определенного региона
+Адрес веб-страницы региона и код показателя, который нужно извлечь,
+передаются как параметры вызова скрипта.
+
+На вход подаются:
+- адрес веб-страницы региона, на которой есть ссылки на вузы, из которых нужно извлечь значения показателей.
+- код показателя (на веб-странице находится в графе '№')
+
+Пример запуска:
+./extract_from_web.sh 'http://indicators.miccedu.ru/monitoring/material.php?type=2&id=10201' I7.3
+"
+    exit
+fi
+
+#############
+# Настройка #
+#############
+totalstart="\033[32m";
+totalend="\033[0m";
+
+msgend="$totalend\033[35m";
+
+errorstart="$totalend\033[31m";
+successstart="$totalend\033[32m";
+notifystart="$totalend\033[37m";
+
+DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+
+#########################
+# Проверка зависимостей #
+#########################
+command -v recode >/dev/null 2>&1 || { echo -e >&2 $errorstart "\nТребуется программа 'recode'. Установите ее с помощью команды\n\n\tsudo apt-get install recode\n" $totalend; exit 1; }
+command -v parallel >/dev/null 2>&1 || { echo -e >&2 $errorstart "\nТребуется программа 'parallel'. Установите ее с помощью команды\n\n\tsudo apt-get install parallel\n" $totalend; exit 1; }
+
+############################
+# Обработка входных данных #
+############################
 url=$1
-echo $url
-filename=$(basename "$url")
-
-dirname=`echo $filename | cut -d'.' -f1`
 criterion=$2
 
+echo -e $totalstart
+echo -e $notifystart"Ссылка на веб-страницу региона: $url" $msgend
+echo -e $notifystart"Код показателя: $criterion" $msgend
 
-# Скачать страницу региона с вузами
-mkdir $dirname
-cd $dirname
-wget $url
+codename=region`basename "$url" | cut -d'?' -f2 | cut -d'&' -f2 | cut -d'=' -f2`
 
-csv="$2.csv"
-echo -n > $csv
-csv="../$csv"
+dirname=$DIR/$codename"_dir"
+echo -e $notifystart"Каталог региона: $dirname" $msgend
 
-# Выбрать все ссылки на вузы и скачать их в соседнюю папку
-mkdir insts
-cd insts
-cat ../$filename | recode cp1251...utf8 | grep -E '(inst_|filial_)' | awk -F\" '{print "http://miccedu.ru/monitoring/materials/" $2}' | xargs wget
+urlfile=$dirname/$codename.html
+echo -e $notifystart"Страница сохранится в $urlfile" $msgend
 
-for file in *.htm; do
-    echo "Process $file to $csv..."
+linksfile=$dirname/$codename.txt
+echo -e $notifystart"Список ссылок сохранится в $linksfile" $msgend
 
-    lynx --dump $file | sed 's/[\ \n\r\s]\+/\ /g' | grep 'Наименование образовательной организации' -A10 | grep 'Регион,' -m1 -B10 | grep -v -E '(Наименование образовательной организации|Регион,)' | tr "\\n\"" " " | sed 's/^ *//;s/ *$//' | sed 's/;/,/g' | sed 's/[\ \n\r\s]\+/\ /g' >> $csv
-    echo -n ';' >> $csv
-    echo -n $file >> $csv
-    echo -n ';' >> $csv
-    lynx --dump $file | grep $criterion -A20 | sed ':a;N;$!ba;s/\n/|/g' | sed -e 's/||\+/~/g' | awk -F~ '{print $4}' | sed 's/^ *//;s/ *$//' >> $csv
+########################################
+# Скачивание страницы региона с вузами #
+########################################
+mkdir -p "$dirname"
+echo -e $notifystart"Скачивается страница $url:" "\n" $msgend
+wget "$url" -nv -O "$urlfile"
 
-    echo "$file done!";
-done;
+##############################################
+# Сохранение ссылок на страницы вузов в файл #
+##############################################
+cat "$urlfile" | recode -f cp1251..utf8 | grep -E 'inst.php' | awk -F\' '{print "http://indicators.miccedu.ru/monitoring/"$2}' > "$linksfile"
 
+echo -e $successstart"Список страниц сохранен в $linksfile" "\n" $msgend
 
-
+##############################################
+# Запуск обработчика файла со списком ссылок #
+##############################################
+bash $DIR/extract_from_file.sh "$linksfile" "$criterion"

@@ -1,0 +1,10 @@
+{
+    "name": "tikhon/miccedu_ru_extractor",
+    "authors": [
+        {
+            "name": "Tikhon Tagunov",
+            "email": "niptuckker@gmail.com"
+        }
+    ],
+    "require": {}
+}
