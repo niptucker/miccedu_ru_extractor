@@ -74,6 +74,8 @@ echo -e -n > "$csv"
 delimiter="\t"
 echo -e $notifystart"Просматриваем файлы каждого вуза и заполняем CSV-файл $csv:" $msgend
 while read -r link; do
+    link=$(echo $link | sed -e "s/\r//g")
+
     echo -e $notifystart"Ссылка $link: " $msgend
 
     ################################
