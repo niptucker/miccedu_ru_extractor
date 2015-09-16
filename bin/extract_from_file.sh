@@ -105,7 +105,7 @@ while read -r link; do
     ###################################################################
     # Записываем значение показателя и перенос строки (автоматически) #
     ###################################################################
-    value=`cat $linkfile | recode -f cp1251..utf8 | grep $criterion -A20 | sed 's|<[^>]*>|~|g' | xargs | awk -F~ '{print $9}'`
+    value=`cat $linkfile | recode -f cp1251..utf8 | grep $criterion -A20 -m1 | grep "<tr>" -B20 -m2 | head --lines=-1 | sed 's|<[^>]*>|~|g' | xargs | sed 's|<[^>]*>|~|g' | sed -E 's|\s+| |g' | sed -E 's|( *~+ *)+|~|g' | awk -F~ '{print $4"\t"$5"\t"$6}'`
     echo -e $value >> $csv
 
     echo -e $successstart"$criterion -> $value " $msgend
