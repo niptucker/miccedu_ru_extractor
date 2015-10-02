@@ -6,18 +6,14 @@
 if [ $# -eq 0 ]
   then
     echo '
-Скрипт для извлечения значений показателей из всех веб-страниц региона Мониторинга miccedu.ru
-
-Извлечения данных происходит из всех веб-страниц определенного региона
-Адрес веб-страницы региона и код показателя, который нужно извлечь,
-передаются как параметры вызова скрипта.
+Скрипт для извлечения ссылок на регионы со страницы года
 
 На вход подаются:
-1) адрес веб-страницы региона, на которой есть ссылки на вузы, из которых нужно извлечь значения показателей.
+1) адрес веб-страницы года, на которой есть ссылки на регионы
 2) код показателя (на веб-странице находится в графе "№")
 
 Пример запуска:
-./extract_from_web.sh "http://indicators.miccedu.ru/monitoring/material.php?type=2&id=10201" "I7.3"
+./extract_from_year.sh "http://indicators.miccedu.ru/monitoring/" "I7.3"
 '
     exit
 fi
@@ -48,29 +44,21 @@ command -v parallel >/dev/null 2>&1 || { echo -e >&2 $errorstart "\nТребуе
 ############################
 url=$1
 criterion=$2
-csv=$3
-append=$4
-if [ -z "$5" ];
-    then
-        workdir="$DIR"
-    else
-        workdir="$5"
-fi
 
 echo -e $totalstart
-echo -e $notifystart"Ссылка на веб-страницу региона: $url" $msgend
+echo -e $notifystart"Ссылка на веб-страницу с ссылками на регионы: $url" $msgend
 echo -e $notifystart"Код показателя: $criterion" $msgend
 
-codename=region`basename "$url" | cut -d'?' -f2 | cut -d'&' -f2 | cut -d'=' -f2`
+codename=year`basename "$url" | cut -d'?' -f2 | cut -d'&' -f2 | cut -d'=' -f2`
 
-dirname=$workdir/$codename"_dir"
-echo -e $notifystart"Каталог региона: $dirname" $msgend
+dirname=$DIR/$codename"_dir"
+echo -e $notifystart"Каталог года: $dirname" $msgend
 
 urlfile=$dirname/$codename.html
-echo -e $notifystart"Страница сохранится в $urlfile" $msgend
+echo -e $notifystart"Страница года сохранится в $urlfile" $msgend
 
-linksfile=$dirname/$codename.txt
-echo -e $notifystart"Список ссылок сохранится в $linksfile" $msgend
+regionsfile=$dirname/$codename.txt
+echo -e $notifystart"Список ссылок на регионы сохранится в $regionsfile" $msgend
 
 ########################################
 # Скачивание страницы региона с вузами #
@@ -82,11 +70,12 @@ wget "$url" -nv -O "$urlfile"
 ##############################################
 # Сохранение ссылок на страницы вузов в файл #
 ##############################################
-cat "$urlfile" | recode -f cp1251..utf8 | grep -E 'inst.php' | awk -F\' '{print "http://indicators.miccedu.ru/monitoring/"$2}' > "$linksfile"
+cat "$urlfile" | recode -f cp1251..utf8 | grep -Po 'material.php[^'"'"'\"]*' | awk -F\' '{print "http://indicators.miccedu.ru/monitoring/"$0}' > "$regionsfile"
 
-echo -e $successstart"Список страниц сохранен в $linksfile" "\n" $msgend
+echo -e $successstart"Список ссылок на регионы сохранен в $regionsfile" "\n" $msgend
 
 ##############################################
 # Запуск обработчика файла со списком ссылок #
 ##############################################
-bash $DIR/extract_from_file.sh "$linksfile" "$criterion" "$csv" "$append" "$workdir"
+# echo $DIR/extract_from_regionsfile.sh "$regionsfile" "$criterion"
+bash $DIR/extract_from_regionsfile.sh "$regionsfile" "$criterion"
