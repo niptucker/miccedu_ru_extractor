@@ -72,17 +72,24 @@ echo -e $notifystart"Страница сохранится в $urlfile" $msgend
 linksfile=$dirname/$codename.txt
 echo -e $notifystart"Список ссылок сохранится в $linksfile" $msgend
 
+mkdir -p "$dirname"
+
 ########################################
 # Скачивание страницы региона с вузами #
 ########################################
-mkdir -p "$dirname"
-echo -e $notifystart"Скачивается страница $url:" "\n" $msgend
-wget "$url" -nv -O "$urlfile"
+if [ ! -f "$urlfile" ]
+then
+    echo -e $notifystart"Скачивается страница $url:" "\n" $msgend
+    wget "$url" -nv -nc -O "$urlfile"
+    recode -f cp1251..utf8 "$urlfile"
+else
+    echo -e $notifystart"Страница $url уже скачана:" "\n" $msgend
+fi
 
 ##############################################
 # Сохранение ссылок на страницы вузов в файл #
 ##############################################
-cat "$urlfile" | recode -f cp1251..utf8 | grep -E 'inst.php' | awk -F\' '{print "http://indicators.miccedu.ru/monitoring/"$2}' > "$linksfile"
+cat "$urlfile" | grep -E 'inst.php' | awk -F\' '{print "http://indicators.miccedu.ru/monitoring/"$2}' > "$linksfile"
 
 echo -e $successstart"Список страниц сохранен в $linksfile" "\n" $msgend
 

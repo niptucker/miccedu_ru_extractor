@@ -58,8 +58,10 @@ dirname=$(dirname "$filename")
 echo -e $notifystart"Каталог региона: $dirname" $msgend
 
 instsdir=$dirname/insts
-mkdir -p $instsdir
-rm $instsdir/*
+if [ ! -d "$instsdir" ]; then
+    mkdir -p $instsdir
+fi
+# rm $instsdir/*
 
 ######################
 # Создание CSV-файла #
@@ -92,16 +94,41 @@ while read -r link; do
     ################################
     linkname=$(basename $link)
     linkfile=$instsdir/$linkname
-    wget -nv "$link" -O "$linkfile"
+
+    if [ ! -f "$linkfile" ]
+    then
+        wget "$link" -nv -nc -O "$linkfile"
+        recode -f cp1251..utf8 "$linkfile"
+    fi
+
+    ################################
+    # Записываем название региона и разделитель #
+    ################################
+    name=`cat $linkfile | sed 's/[\ \n\r\s]\+/\ /g' | grep -E -m1 "material.php[^<]+>[^<]+" -A10 -o | grep -o -E ">.*" | grep -o -E "[^>]*" | xargs`
+    echo -e -n $name >> $csv
+    echo -e -n $delimiter >> $csv
+
+    echo -e $successstart"Регион '$name' " $msgend
+
 
     ################################
     # Записываем название вуза и разделитель #
     ################################
-    name=`cat $linkfile | recode -f cp1251..utf8 | sed 's/[\ \n\r\s]\+/\ /g' | grep 'Наименование образовательной организации' -A10 | grep 'Регион,' -m1 -B10 | grep -v -E '(Наименование образовательной организации)' | tr "\\n\"" " " | sed 's/^ *//;s/ *$//' | sed 's/;/,/g' | sed 's/[\ \n\r\s]\+/\ /g' | sed 's|<[^>]*>||g' | sed 's/Регион,адрес//g' | xargs`
+    name=`cat $linkfile | sed 's/[\ \n\r\s]\+/\ /g' | grep 'Регион' -A10 | grep 'Регион,' -m1 -B10 | grep -v -E '(Наименование образовательной организации)' | tr "\\n\"" " " | sed 's/^ *//;s/ *$//' | sed 's/;/,/g' | sed 's/[\ \n\r\s]\+/\ /g' | sed 's|<[^>]*>||g' | sed 's/Регион,адрес//g' | xargs`
     echo -e -n $name >> $csv
     echo -e -n $delimiter >> $csv
 
     echo -e $successstart"Вуз '$name' " $msgend
+
+
+    ################################
+    # Записываем статус вуза и разделитель #
+    ################################
+    # name=`cat $linkfile | sed 's/[\ \n\r\s]\+/\ /g' | grep 'Регион' -A10 | grep 'Регион,' -m1 -B10 | grep -v -E '(Наименование образовательной организации)' | tr "\\n\"" " " | sed 's/^ *//;s/ *$//' | sed 's/;/,/g' | sed 's/[\ \n\r\s]\+/\ /g' | sed 's|<[^>]*>||g' | sed 's/Регион,адрес//g' | xargs`
+    # echo -e -n $name >> $csv
+    # echo -e -n $delimiter >> $csv
+
+    # echo -e $successstart"Вуз '$name' " $msgend
 
 
     ######################################
@@ -114,8 +141,8 @@ while read -r link; do
     ###################################################################
     # Записываем значение показателя и перенос строки (автоматически) #
     ###################################################################
-    value=`cat $linkfile | recode -f cp1251..utf8 | grep $criterion -A20 -m1 | grep "<tr>" -B20 -m2 | head --lines=-1 | sed 's|<[^>]*>|~|g' | xargs | sed 's|<[^>]*>|~|g' | sed -E 's|\s+| |g' | sed -E 's|( *~+ *)+|~|g' | awk -F~ '{print $4" -- "$5" -- "$6}'`
-    echo -e $value | sed "s| -- |\t|g" >> $csv
+    value=`cat $linkfile | grep -F "$criterion" -A20 -m1 | grep "</tr>" -B20 -m2 | head --lines=-1 | sed 's|<[^>]*>|~|g' | xargs | sed 's|<[^>]*>|~|g' | sed -E 's|\s+| |g' | sed -E 's|( *~+ *)+|~|g' | awk -F~ '{print $4" -- "$5"--"$6}'`
+    echo -e $value | sed "s| *-- *|\t|g" >> $csv
 
     echo -e $successstart"$criterion -> $value " $msgend
 done < "$filename"

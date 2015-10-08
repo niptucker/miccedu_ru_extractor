@@ -58,8 +58,10 @@ dirname=$(dirname "$filename")
 echo -e $notifystart"Каталог года: $dirname" $msgend
 
 regiondir=$dirname/regions
-mkdir -p $regiondir
-rm $regiondir/*
+if [ ! -d "$regiondir" ]; then
+    mkdir -p $regiondir
+fi
+# rm $regiondir/*
 
 ######################
 # Создание CSV-файла #
@@ -80,42 +82,8 @@ while read -r link; do
 
     bash $DIR/extract_from_web.sh "$link" "$criterion" "$csv" "append" "$regiondir"
 
-    ################################
-    # Скачивание всех ссылок регионов #
-    ################################
-    # linkname=$(basename $link)
-    # linkfile=$regiondir/$linkname
-    # wget -nv "$link" -O "$linkfile"
-
-    ################################
-    # Записываем название регион и разделитель #
-    ################################
-    # name=`cat $linkfile | recode -f cp1251..utf8 | sed 's/[\ \n\r\s]\+/\ /g' | grep 'Наименование образовательной организации' -A10 | grep 'Регион,' -m1 -B10 | grep -v -E '(Наименование образовательной организации)' | tr "\\n\"" " " | sed 's/^ *//;s/ *$//' | sed 's/;/,/g' | sed 's/[\ \n\r\s]\+/\ /g' | sed 's|<[^>]*>||g' | sed 's/Регион,адрес//g' | xargs`
-    # echo -e -n $name >> $csv
-    # echo -e -n $delimiter >> $csv
-
-    # echo -e $successstart"Вуз '$name' " $msgend
-
-
-    ######################################
-    # Записываем имя ссылки и разделитель #
-    ######################################
-    # echo -e -n $link >> $csv
-    # echo -e -n $delimiter >> $csv
-
-
-    ###################################################################
-    # Записываем значение показателя и перенос строки (автоматически) #
-    ###################################################################
-    # value=`cat $linkfile | recode -f cp1251..utf8 | grep $criterion -A20 -m1 | grep "<tr>" -B20 -m2 | head --lines=-1 | sed 's|<[^>]*>|~|g' | xargs | sed 's|<[^>]*>|~|g' | sed -E 's|\s+| |g' | sed -E 's|( *~+ *)+|~|g' | awk -F~ '{print $4" -- "$5" -- "$6}'`
-    # echo -e $value | sed "s| -- |\t|g" >> $csv
-
-    # echo -e $successstart"$criterion -> $value " $msgend
 done < "$filename"
 
 echo -e $successstart"\n\nCSV-файл сохранен в $csv " $msgend
 
 echo -e $totalend
-
-# echo -e "\n\n"
-# cat $csv

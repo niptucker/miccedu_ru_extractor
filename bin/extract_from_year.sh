@@ -60,17 +60,24 @@ echo -e $notifystart"Страница года сохранится в $urlfile"
 regionsfile=$dirname/$codename.txt
 echo -e $notifystart"Список ссылок на регионы сохранится в $regionsfile" $msgend
 
+mkdir -p "$dirname"
+
 ########################################
 # Скачивание страницы региона с вузами #
 ########################################
-mkdir -p "$dirname"
-echo -e $notifystart"Скачивается страница $url:" "\n" $msgend
-wget "$url" -nv -O "$urlfile"
+if [ ! -f "$urlfile" ]
+then
+    echo -e $notifystart"Скачивается страница $url:" "\n" $msgend
+    wget "$url" -nv -nc -O "$urlfile"
+    recode -f cp1251..utf8 "$urlfile"
+else
+    echo -e $notifystart"Страница $url уже скачана:" "\n" $msgend
+fi
 
 ##############################################
 # Сохранение ссылок на страницы вузов в файл #
 ##############################################
-cat "$urlfile" | recode -f cp1251..utf8 | grep -Po 'material.php[^'"'"'\"]*' | awk -F\' '{print "http://indicators.miccedu.ru/monitoring/"$0}' > "$regionsfile"
+cat "$urlfile" | grep -Po 'material.php[^'"'"'\"]*' | awk -F\' '{print "http://indicators.miccedu.ru/monitoring/"$0}' > "$regionsfile"
 
 echo -e $successstart"Список ссылок на регионы сохранен в $regionsfile" "\n" $msgend
 
