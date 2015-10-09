@@ -28,16 +28,16 @@ for i in "${!names[@]}"; do
 
     cat <<EOF
 I$num.$j (${names[$i]})
-//table[@class='\''napde'\''][preceding-sibling::span[1][.="${names[$i]}"]]//tr[td='I$num.$j']/td[1]
+//table[@class='napde'][preceding-sibling::span[1][.="${names[$i]}"]]//tr[td='I$num.$j']/td[1]
 
 I$num.$j Название
-//table[@class='\''napde'\''][preceding-sibling::span[1][.="${names[$i]}"]]//tr[td='I$num.$j']/td[2]
+//table[@class='napde'][preceding-sibling::span[1][.="${names[$i]}"]]//tr[td='I$num.$j']/td[2]
 
 I$num.$j Единица измерения
-//table[@class='\''napde'\''][preceding-sibling::span[1][.="${names[$i]}"]]//tr[td='I$num.$j']/td[3]
+//table[@class='napde'][preceding-sibling::span[1][.="${names[$i]}"]]//tr[td='I$num.$j']/td[3]
 
 I$num.$j Значение показателя
-//table[@class='\''napde'\''][preceding-sibling::span[1][.="${names[$i]}"]]//tr[td='I$num.$j']/td[4]
+//table[@class='napde'][preceding-sibling::span[1][.="${names[$i]}"]]//tr[td='I$num.$j']/td[4]
 
 EOF
 

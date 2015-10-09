@@ -14,40 +14,25 @@ if [ $# -eq 0 ]
 На вход подаются:
 1) путь к файлу, в котором перечислены адреса веб-страниц вузов, из которых нужно извлечь значения показателей.
    (пример: institutes_list.txt)
-2) код показателя (на веб-странице находится в графе "№")
-   (пример: I7.3)
+2) описание извлекаемых данных:
+    - код показателя (на веб-странице находится в графе "№")
+      (пример: I7.3)
+    - имя файла, в котором описывается формат извлечения
 
 Пример запуска:
+
+./extract_from_file.sh "example/institutes_list.txt" "I7.3"
+
 ./extract_from_file.sh "example/institutes_list.txt" "I7.3"
 '
     exit
 fi
 
-#############
-# Настройка #
-#############
-totalstart="\033[32m";
-totalend="\033[0m";
-
-msgend="$totalend\033[35m";
-
-errorcolor="\033[31m";
-errorstart="$totalend$errorcolorer";
-emcolor="\033[33m";
-emstart="$totalend$emcolor";
-successcolor="\033[32m";
-successstart="$totalend$successcolor";
-notifycolor="\033[37m";
-notifystart="$totalend$notifycolor";
-
+############
+# Загрузка #
+############
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
-
-#########################
-# Проверка зависимостей #
-#########################
-command -v wget >/dev/null 2>&1 || { echo -e >&2 $errorstart "\nТребуется программа 'wget'. Установите ее с помощью команды\n\n\tsudo apt-get install wget\n" $totalend; exit 1; }
-command -v recode >/dev/null 2>&1 || { echo -e >&2 $errorstart "\nТребуется программа 'recode'. Установите ее с помощью команды\n\n\tsudo apt-get install recode\n" $totalend; exit 1; }
-command -v parallel >/dev/null 2>&1 || { echo -e >&2 $errorstart "\nТребуется программа 'parallel'. Установите ее с помощью команды\n\n\tsudo apt-get install parallel\n" $totalend; exit 1; }
+. $DIR/helpers/setup.sh
 
 ############################
 # Обработка входных данных #
@@ -66,7 +51,6 @@ instsdir=$dirname/insts
 if [ ! -d "$instsdir" ]; then
     mkdir -p $instsdir
 fi
-# rm $instsdir/*
 
 ######################
 # Создание CSV-файла #

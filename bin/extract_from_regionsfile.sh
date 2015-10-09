@@ -23,31 +23,11 @@ if [ $# -eq 0 ]
     exit
 fi
 
-#############
-# Настройка #
-#############
-totalstart="\033[32m";
-totalend="\033[0m";
-
-msgend="$totalend\033[35m";
-
-errorcolor="\033[31m";
-errorstart="$totalend$errorcolorer";
-emcolor="\033[33m";
-emstart="$totalend$emcolor";
-successcolor="\033[32m";
-successstart="$totalend$successcolor";
-notifycolor="\033[37m";
-notifystart="$totalend$notifycolor";
-
+############
+# Загрузка #
+############
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
-
-#########################
-# Проверка зависимостей #
-#########################
-command -v wget >/dev/null 2>&1 || { echo -e >&2 $errorstart "\nТребуется программа 'wget'. Установите ее с помощью команды\n\n\tsudo apt-get install wget\n" $totalend; exit 1; }
-command -v recode >/dev/null 2>&1 || { echo -e >&2 $errorstart "\nТребуется программа 'recode'. Установите ее с помощью команды\n\n\tsudo apt-get install recode\n" $totalend; exit 1; }
-command -v parallel >/dev/null 2>&1 || { echo -e >&2 $errorstart "\nТребуется программа 'parallel'. Установите ее с помощью команды\n\n\tsudo apt-get install parallel\n" $totalend; exit 1; }
+. $DIR/helpers/setup.sh
 
 ############################
 # Обработка входных данных #
@@ -66,7 +46,6 @@ regiondir=$dirname/regions
 if [ ! -d "$regiondir" ]; then
     mkdir -p $regiondir
 fi
-# rm $regiondir/*
 
 ######################
 # Создание CSV-файла #
@@ -78,8 +57,7 @@ else
 fi
 csv=`readlink -e "$dirname"`"/$csvname.csv"
 echo -e -n > "$csv"
-# echo "$csv"
-# exit
+
 ################################
 # Обход всех ссылок регионов
 ################################
