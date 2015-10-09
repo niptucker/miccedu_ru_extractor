@@ -31,9 +31,14 @@ totalend="\033[0m";
 
 msgend="$totalend\033[35m";
 
-errorstart="$totalend\033[31m";
-successstart="$totalend\033[32m";
-notifystart="$totalend\033[37m";
+errorcolor="\033[31m";
+errorstart="$totalend$errorcolorer";
+emcolor="\033[33m";
+emstart="$totalend$emcolor";
+successcolor="\033[32m";
+successstart="$totalend$successcolor";
+notifycolor="\033[37m";
+notifystart="$totalend$notifycolor";
 
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
@@ -51,11 +56,11 @@ filename=`readlink -e $1`
 criterion=$2
 
 echo -e $totalstart
-echo -e $notifystart"Файл с ссылками на страницы регионов года: $filename" $msgend
-echo -e $notifystart"Код показателя: $criterion" $msgend
+echo -e $notifystart"Файл с ссылками на страницы регионов года: $emcolor$filename"$msgend
+echo -e $notifystart"Код показателя: $emcolor$criterion"$msgend
 
 dirname=$(dirname "$filename")
-echo -e $notifystart"Каталог года: $dirname" $msgend
+echo -e $notifystart"Каталог года: $emcolor$dirname"$msgend
 
 regiondir=$dirname/regions
 if [ ! -d "$regiondir" ]; then
@@ -66,24 +71,32 @@ fi
 ######################
 # Создание CSV-файла #
 ######################
-csv=`readlink -e "$dirname"`"/$2.csv"
+if [ -f "$criterion" ]; then
+    csvname=$(basename $criterion)
+else
+    csvname="$criterion"
+fi
+csv=`readlink -e "$dirname"`"/$csvname.csv"
 echo -e -n > "$csv"
-
+# echo "$csv"
+# exit
 ################################
 # Обход всех ссылок регионов
 ################################
 # delimiter=";"
 delimiter="\t"
-echo -e $notifystart"Просматриваем файлы каждого региона и дополняем CSV-файл $csv:" $msgend
+echo -e $notifystart"Просматриваем файлы каждого региона и дополняем CSV-файл $emcolor$csv$notifystart:"$msgend
+echo
+
 while read -r link; do
     link=$(echo $link | sed -e "s/\r//g")
 
-    echo -e $notifystart"Ссылка $link: " $msgend
+    echo -e $notifystart"Ссылка $emcolor$link$notifystart: "$msgend
 
     bash $DIR/extract_from_web.sh "$link" "$criterion" "$csv" "append" "$regiondir"
 
 done < "$filename"
 
-echo -e $successstart"\n\nCSV-файл сохранен в $csv " $msgend
+echo -e $successstart"\n\nCSV-файл сохранен в $emcolor$csv"$msgend
 
 echo -e $totalend

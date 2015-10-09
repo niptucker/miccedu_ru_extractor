@@ -30,9 +30,14 @@ totalend="\033[0m";
 
 msgend="$totalend\033[35m";
 
-errorstart="$totalend\033[31m";
-successstart="$totalend\033[32m";
-notifystart="$totalend\033[37m";
+errorcolor="\033[31m";
+errorstart="$totalend$errorcolorer";
+emcolor="\033[33m";
+emstart="$totalend$emcolor";
+successcolor="\033[32m";
+successstart="$totalend$successcolor";
+notifycolor="\033[37m";
+notifystart="$totalend$notifycolor";
 
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
@@ -58,19 +63,19 @@ if [ -z "$5" ];
 fi
 
 echo -e $totalstart
-echo -e $notifystart"Ссылка на веб-страницу региона: $url" $msgend
-echo -e $notifystart"Код показателя: $criterion" $msgend
+echo -e $notifystart"Ссылка на веб-страницу региона: $emcolor$url"$msgend
+echo -e $notifystart"Код показателя: $emcolor$criterion"$msgend
 
 codename=region`basename "$url" | cut -d'?' -f2 | cut -d'&' -f2 | cut -d'=' -f2`
 
 dirname=$workdir/$codename"_dir"
-echo -e $notifystart"Каталог региона: $dirname" $msgend
+echo -e $notifystart"Каталог региона: $emcolor$dirname"$msgend
 
 urlfile=$dirname/$codename.html
-echo -e $notifystart"Страница сохранится в $urlfile" $msgend
+echo -e $notifystart"Страница сохранится в $emcolor$urlfile"$msgend
 
 linksfile=$dirname/$codename.txt
-echo -e $notifystart"Список ссылок сохранится в $linksfile" $msgend
+echo -e $notifystart"Список ссылок сохранится в $emcolor$linksfile"$msgend
 
 mkdir -p "$dirname"
 
@@ -79,11 +84,11 @@ mkdir -p "$dirname"
 ########################################
 if [ ! -f "$urlfile" ]
 then
-    echo -e $notifystart"Скачивается страница $url:" "\n" $msgend
+    echo -e $notifystart"Скачивается страница $emcolor$url$notifystart:" "\n"$msgend
     wget "$url" -nv -nc -O "$urlfile"
     recode -f cp1251..utf8 "$urlfile"
 else
-    echo -e $notifystart"Страница $url уже скачана:" "\n" $msgend
+    echo -e $notifystart"Страница $emcolor$url$notifystart $successcolorуже скачана$notifystart:" "\n"$msgend
 fi
 
 ##############################################
@@ -91,7 +96,7 @@ fi
 ##############################################
 cat "$urlfile" | grep -E 'inst.php' | awk -F\' '{print "http://indicators.miccedu.ru/monitoring/"$2}' > "$linksfile"
 
-echo -e $successstart"Список страниц сохранен в $linksfile" "\n" $msgend
+echo -e $notifystart"Список страниц вузов сохранен в $emcolor$linksfile"$msgend
 
 ##############################################
 # Запуск обработчика файла со списком ссылок #

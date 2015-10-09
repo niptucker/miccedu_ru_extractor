@@ -1,0 +1,885 @@
+Наименование образовательной организации
+//table[@id='info']//tr[td='Наименование образовательной организации']/td[2]
+
+Регион
+//table[@id='info']//tr[td='Регион,адрес']/td[2]/a
+
+Адрес
+//table[@id='info']//tr[td='Регион,адрес']/td[2]//*[3]
+
+Ректор
+//table[@id='info']//tr[td='Ректор']/td[2]
+
+Веб-сайт
+//table[@id='info']//tr[td='web-сайт']/td[2]
+
+Профиль организации
+//table[@id='info']//tr[td='Профиль организации']/td[2]
+
+Результат оценки эффективности деятельности
+//table[@id='info']//tr[td='Результат оценки эффективности деятельности']/td[2]
+
+E.1
+//table[@id='result']//tr[td='E.1']/td[1]
+
+E.1 Название
+//table[@id='result']//tr[td='E.1']/td[2]
+
+E.1 Значение
+//table[@id='result']//tr[td='E.1']/td[3]
+
+E.1 Пороговое значение
+//table[@id='result']//tr[td='E.1']/td[4]
+
+E.1 Относительно прошлого года
+//table[@id='result']//tr[td='E.1']/td[4]
+
+E.2
+//table[@id='result']//tr[td='E.2']/td[1]
+
+E.2 Название
+//table[@id='result']//tr[td='E.2']/td[2]
+
+E.2 Значение
+//table[@id='result']//tr[td='E.2']/td[3]
+
+E.2 Пороговое значение
+//table[@id='result']//tr[td='E.2']/td[4]
+
+E.2 Относительно прошлого года
+//table[@id='result']//tr[td='E.2']/td[4]
+
+E.3
+//table[@id='result']//tr[td='E.3']/td[1]
+
+E.3 Название
+//table[@id='result']//tr[td='E.3']/td[2]
+
+E.3 Значение
+//table[@id='result']//tr[td='E.3']/td[3]
+
+E.3 Пороговое значение
+//table[@id='result']//tr[td='E.3']/td[4]
+
+E.3 Относительно прошлого года
+//table[@id='result']//tr[td='E.3']/td[4]
+
+E.4
+//table[@id='result']//tr[td='E.4']/td[1]
+
+E.4 Название
+//table[@id='result']//tr[td='E.4']/td[2]
+
+E.4 Значение
+//table[@id='result']//tr[td='E.4']/td[3]
+
+E.4 Пороговое значение
+//table[@id='result']//tr[td='E.4']/td[4]
+
+E.4 Относительно прошлого года
+//table[@id='result']//tr[td='E.4']/td[4]
+
+E.5
+//table[@id='result']//tr[td='E.5']/td[1]
+
+E.5 Название
+//table[@id='result']//tr[td='E.5']/td[2]
+
+E.5 Значение
+//table[@id='result']//tr[td='E.5']/td[3]
+
+E.5 Пороговое значение
+//table[@id='result']//tr[td='E.5']/td[4]
+
+E.5 Относительно прошлого года
+//table[@id='result']//tr[td='E.5']/td[4]
+
+E.6
+//table[@id='result']//tr[td='E.6']/td[1]
+
+E.6 Название
+//table[@id='result']//tr[td='E.6']/td[2]
+
+E.6 Значение
+//table[@id='result']//tr[td='E.6']/td[3]
+
+E.6 Пороговое значение
+//table[@id='result']//tr[td='E.6']/td[4]
+
+E.6 Относительно прошлого года
+//table[@id='result']//tr[td='E.6']/td[4]
+
+E.7
+//table[@id='result']//tr[td='E.7']/td[1]
+
+E.7 Название
+//table[@id='result']//tr[td='E.7']/td[2]
+
+E.7 Значение
+//table[@id='result']//tr[td='E.7']/td[3]
+
+E.7 Пороговое значение
+//table[@id='result']//tr[td='E.7']/td[4]
+
+E.7 Относительно прошлого года
+//table[@id='result']//tr[td='E.7']/td[4]
+
+E.8
+//table[@id='result']//tr[td='E.8']/td[1]
+
+E.8 Название
+//table[@id='result']//tr[td='E.8']/td[2]
+
+E.8 Значение
+//table[@id='result']//tr[td='E.8']/td[3]
+
+E.8 Пороговое значение
+//table[@id='result']//tr[td='E.8']/td[4]
+
+E.8 Относительно прошлого года
+//table[@id='result']//tr[td='E.8']/td[4]
+
+I1.1 (Образовательная деятельность)
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Образовательная деятельность"]]//tr[td='I1.1']/td[1]
+
+I1.1 Название
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Образовательная деятельность"]]//tr[td='I1.1']/td[2]
+
+I1.1 Единица измерения
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Образовательная деятельность"]]//tr[td='I1.1']/td[3]
+
+I1.1 Значение показателя
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Образовательная деятельность"]]//tr[td='I1.1']/td[4]
+
+I1.2 (Образовательная деятельность)
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Образовательная деятельность"]]//tr[td='I1.2']/td[1]
+
+I1.2 Название
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Образовательная деятельность"]]//tr[td='I1.2']/td[2]
+
+I1.2 Единица измерения
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Образовательная деятельность"]]//tr[td='I1.2']/td[3]
+
+I1.2 Значение показателя
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Образовательная деятельность"]]//tr[td='I1.2']/td[4]
+
+I1.3 (Образовательная деятельность)
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Образовательная деятельность"]]//tr[td='I1.3']/td[1]
+
+I1.3 Название
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Образовательная деятельность"]]//tr[td='I1.3']/td[2]
+
+I1.3 Единица измерения
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Образовательная деятельность"]]//tr[td='I1.3']/td[3]
+
+I1.3 Значение показателя
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Образовательная деятельность"]]//tr[td='I1.3']/td[4]
+
+I1.4 (Образовательная деятельность)
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Образовательная деятельность"]]//tr[td='I1.4']/td[1]
+
+I1.4 Название
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Образовательная деятельность"]]//tr[td='I1.4']/td[2]
+
+I1.4 Единица измерения
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Образовательная деятельность"]]//tr[td='I1.4']/td[3]
+
+I1.4 Значение показателя
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Образовательная деятельность"]]//tr[td='I1.4']/td[4]
+
+I1.5 (Образовательная деятельность)
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Образовательная деятельность"]]//tr[td='I1.5']/td[1]
+
+I1.5 Название
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Образовательная деятельность"]]//tr[td='I1.5']/td[2]
+
+I1.5 Единица измерения
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Образовательная деятельность"]]//tr[td='I1.5']/td[3]
+
+I1.5 Значение показателя
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Образовательная деятельность"]]//tr[td='I1.5']/td[4]
+
+I1.6 (Образовательная деятельность)
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Образовательная деятельность"]]//tr[td='I1.6']/td[1]
+
+I1.6 Название
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Образовательная деятельность"]]//tr[td='I1.6']/td[2]
+
+I1.6 Единица измерения
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Образовательная деятельность"]]//tr[td='I1.6']/td[3]
+
+I1.6 Значение показателя
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Образовательная деятельность"]]//tr[td='I1.6']/td[4]
+
+I1.7 (Образовательная деятельность)
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Образовательная деятельность"]]//tr[td='I1.7']/td[1]
+
+I1.7 Название
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Образовательная деятельность"]]//tr[td='I1.7']/td[2]
+
+I1.7 Единица измерения
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Образовательная деятельность"]]//tr[td='I1.7']/td[3]
+
+I1.7 Значение показателя
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Образовательная деятельность"]]//tr[td='I1.7']/td[4]
+
+I1.8 (Образовательная деятельность)
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Образовательная деятельность"]]//tr[td='I1.8']/td[1]
+
+I1.8 Название
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Образовательная деятельность"]]//tr[td='I1.8']/td[2]
+
+I1.8 Единица измерения
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Образовательная деятельность"]]//tr[td='I1.8']/td[3]
+
+I1.8 Значение показателя
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Образовательная деятельность"]]//tr[td='I1.8']/td[4]
+
+I1.9 (Образовательная деятельность)
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Образовательная деятельность"]]//tr[td='I1.9']/td[1]
+
+I1.9 Название
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Образовательная деятельность"]]//tr[td='I1.9']/td[2]
+
+I1.9 Единица измерения
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Образовательная деятельность"]]//tr[td='I1.9']/td[3]
+
+I1.9 Значение показателя
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Образовательная деятельность"]]//tr[td='I1.9']/td[4]
+
+I1.10 (Образовательная деятельность)
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Образовательная деятельность"]]//tr[td='I1.10']/td[1]
+
+I1.10 Название
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Образовательная деятельность"]]//tr[td='I1.10']/td[2]
+
+I1.10 Единица измерения
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Образовательная деятельность"]]//tr[td='I1.10']/td[3]
+
+I1.10 Значение показателя
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Образовательная деятельность"]]//tr[td='I1.10']/td[4]
+
+I1.11 (Образовательная деятельность)
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Образовательная деятельность"]]//tr[td='I1.11']/td[1]
+
+I1.11 Название
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Образовательная деятельность"]]//tr[td='I1.11']/td[2]
+
+I1.11 Единица измерения
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Образовательная деятельность"]]//tr[td='I1.11']/td[3]
+
+I1.11 Значение показателя
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Образовательная деятельность"]]//tr[td='I1.11']/td[4]
+
+I1.12 (Образовательная деятельность)
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Образовательная деятельность"]]//tr[td='I1.12']/td[1]
+
+I1.12 Название
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Образовательная деятельность"]]//tr[td='I1.12']/td[2]
+
+I1.12 Единица измерения
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Образовательная деятельность"]]//tr[td='I1.12']/td[3]
+
+I1.12 Значение показателя
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Образовательная деятельность"]]//tr[td='I1.12']/td[4]
+
+I1.13 (Образовательная деятельность)
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Образовательная деятельность"]]//tr[td='I1.13']/td[1]
+
+I1.13 Название
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Образовательная деятельность"]]//tr[td='I1.13']/td[2]
+
+I1.13 Единица измерения
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Образовательная деятельность"]]//tr[td='I1.13']/td[3]
+
+I1.13 Значение показателя
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Образовательная деятельность"]]//tr[td='I1.13']/td[4]
+
+I1.14 (Образовательная деятельность)
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Образовательная деятельность"]]//tr[td='I1.14']/td[1]
+
+I1.14 Название
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Образовательная деятельность"]]//tr[td='I1.14']/td[2]
+
+I1.14 Единица измерения
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Образовательная деятельность"]]//tr[td='I1.14']/td[3]
+
+I1.14 Значение показателя
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Образовательная деятельность"]]//tr[td='I1.14']/td[4]
+
+I1.15 (Образовательная деятельность)
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Образовательная деятельность"]]//tr[td='I1.15']/td[1]
+
+I1.15 Название
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Образовательная деятельность"]]//tr[td='I1.15']/td[2]
+
+I1.15 Единица измерения
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Образовательная деятельность"]]//tr[td='I1.15']/td[3]
+
+I1.15 Значение показателя
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Образовательная деятельность"]]//tr[td='I1.15']/td[4]
+
+I2.1 (Научно-исследовательская деятельность)
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.1']/td[1]
+
+I2.1 Название
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.1']/td[2]
+
+I2.1 Единица измерения
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.1']/td[3]
+
+I2.1 Значение показателя
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.1']/td[4]
+
+I2.2 (Научно-исследовательская деятельность)
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.2']/td[1]
+
+I2.2 Название
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.2']/td[2]
+
+I2.2 Единица измерения
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.2']/td[3]
+
+I2.2 Значение показателя
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.2']/td[4]
+
+I2.3 (Научно-исследовательская деятельность)
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.3']/td[1]
+
+I2.3 Название
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.3']/td[2]
+
+I2.3 Единица измерения
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.3']/td[3]
+
+I2.3 Значение показателя
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.3']/td[4]
+
+I2.4 (Научно-исследовательская деятельность)
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.4']/td[1]
+
+I2.4 Название
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.4']/td[2]
+
+I2.4 Единица измерения
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.4']/td[3]
+
+I2.4 Значение показателя
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.4']/td[4]
+
+I2.5 (Научно-исследовательская деятельность)
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.5']/td[1]
+
+I2.5 Название
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.5']/td[2]
+
+I2.5 Единица измерения
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.5']/td[3]
+
+I2.5 Значение показателя
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.5']/td[4]
+
+I2.6 (Научно-исследовательская деятельность)
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.6']/td[1]
+
+I2.6 Название
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.6']/td[2]
+
+I2.6 Единица измерения
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.6']/td[3]
+
+I2.6 Значение показателя
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.6']/td[4]
+
+I2.7 (Научно-исследовательская деятельность)
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.7']/td[1]
+
+I2.7 Название
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.7']/td[2]
+
+I2.7 Единица измерения
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.7']/td[3]
+
+I2.7 Значение показателя
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.7']/td[4]
+
+I2.8 (Научно-исследовательская деятельность)
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.8']/td[1]
+
+I2.8 Название
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.8']/td[2]
+
+I2.8 Единица измерения
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.8']/td[3]
+
+I2.8 Значение показателя
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.8']/td[4]
+
+I2.9 (Научно-исследовательская деятельность)
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.9']/td[1]
+
+I2.9 Название
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.9']/td[2]
+
+I2.9 Единица измерения
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.9']/td[3]
+
+I2.9 Значение показателя
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.9']/td[4]
+
+I2.10 (Научно-исследовательская деятельность)
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.10']/td[1]
+
+I2.10 Название
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.10']/td[2]
+
+I2.10 Единица измерения
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.10']/td[3]
+
+I2.10 Значение показателя
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.10']/td[4]
+
+I2.11 (Научно-исследовательская деятельность)
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.11']/td[1]
+
+I2.11 Название
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.11']/td[2]
+
+I2.11 Единица измерения
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.11']/td[3]
+
+I2.11 Значение показателя
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.11']/td[4]
+
+I2.12 (Научно-исследовательская деятельность)
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.12']/td[1]
+
+I2.12 Название
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.12']/td[2]
+
+I2.12 Единица измерения
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.12']/td[3]
+
+I2.12 Значение показателя
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.12']/td[4]
+
+I2.13 (Научно-исследовательская деятельность)
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.13']/td[1]
+
+I2.13 Название
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.13']/td[2]
+
+I2.13 Единица измерения
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.13']/td[3]
+
+I2.13 Значение показателя
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.13']/td[4]
+
+I2.14 (Научно-исследовательская деятельность)
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.14']/td[1]
+
+I2.14 Название
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.14']/td[2]
+
+I2.14 Единица измерения
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.14']/td[3]
+
+I2.14 Значение показателя
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.14']/td[4]
+
+I2.15 (Научно-исследовательская деятельность)
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.15']/td[1]
+
+I2.15 Название
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.15']/td[2]
+
+I2.15 Единица измерения
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.15']/td[3]
+
+I2.15 Значение показателя
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.15']/td[4]
+
+I2.16 (Научно-исследовательская деятельность)
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.16']/td[1]
+
+I2.16 Название
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.16']/td[2]
+
+I2.16 Единица измерения
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.16']/td[3]
+
+I2.16 Значение показателя
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Научно-исследовательская деятельность"]]//tr[td='I2.16']/td[4]
+
+I3.1 (Международная деятельность)
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Международная деятельность"]]//tr[td='I3.1']/td[1]
+
+I3.1 Название
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Международная деятельность"]]//tr[td='I3.1']/td[2]
+
+I3.1 Единица измерения
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Международная деятельность"]]//tr[td='I3.1']/td[3]
+
+I3.1 Значение показателя
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Международная деятельность"]]//tr[td='I3.1']/td[4]
+
+I3.2 (Международная деятельность)
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Международная деятельность"]]//tr[td='I3.2']/td[1]
+
+I3.2 Название
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Международная деятельность"]]//tr[td='I3.2']/td[2]
+
+I3.2 Единица измерения
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Международная деятельность"]]//tr[td='I3.2']/td[3]
+
+I3.2 Значение показателя
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Международная деятельность"]]//tr[td='I3.2']/td[4]
+
+I3.3 (Международная деятельность)
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Международная деятельность"]]//tr[td='I3.3']/td[1]
+
+I3.3 Название
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Международная деятельность"]]//tr[td='I3.3']/td[2]
+
+I3.3 Единица измерения
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Международная деятельность"]]//tr[td='I3.3']/td[3]
+
+I3.3 Значение показателя
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Международная деятельность"]]//tr[td='I3.3']/td[4]
+
+I3.4 (Международная деятельность)
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Международная деятельность"]]//tr[td='I3.4']/td[1]
+
+I3.4 Название
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Международная деятельность"]]//tr[td='I3.4']/td[2]
+
+I3.4 Единица измерения
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Международная деятельность"]]//tr[td='I3.4']/td[3]
+
+I3.4 Значение показателя
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Международная деятельность"]]//tr[td='I3.4']/td[4]
+
+I3.5 (Международная деятельность)
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Международная деятельность"]]//tr[td='I3.5']/td[1]
+
+I3.5 Название
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Международная деятельность"]]//tr[td='I3.5']/td[2]
+
+I3.5 Единица измерения
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Международная деятельность"]]//tr[td='I3.5']/td[3]
+
+I3.5 Значение показателя
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Международная деятельность"]]//tr[td='I3.5']/td[4]
+
+I3.6 (Международная деятельность)
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Международная деятельность"]]//tr[td='I3.6']/td[1]
+
+I3.6 Название
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Международная деятельность"]]//tr[td='I3.6']/td[2]
+
+I3.6 Единица измерения
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Международная деятельность"]]//tr[td='I3.6']/td[3]
+
+I3.6 Значение показателя
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Международная деятельность"]]//tr[td='I3.6']/td[4]
+
+I3.7 (Международная деятельность)
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Международная деятельность"]]//tr[td='I3.7']/td[1]
+
+I3.7 Название
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Международная деятельность"]]//tr[td='I3.7']/td[2]
+
+I3.7 Единица измерения
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Международная деятельность"]]//tr[td='I3.7']/td[3]
+
+I3.7 Значение показателя
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Международная деятельность"]]//tr[td='I3.7']/td[4]
+
+I3.8 (Международная деятельность)
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Международная деятельность"]]//tr[td='I3.8']/td[1]
+
+I3.8 Название
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Международная деятельность"]]//tr[td='I3.8']/td[2]
+
+I3.8 Единица измерения
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Международная деятельность"]]//tr[td='I3.8']/td[3]
+
+I3.8 Значение показателя
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Международная деятельность"]]//tr[td='I3.8']/td[4]
+
+I3.9 (Международная деятельность)
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Международная деятельность"]]//tr[td='I3.9']/td[1]
+
+I3.9 Название
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Международная деятельность"]]//tr[td='I3.9']/td[2]
+
+I3.9 Единица измерения
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Международная деятельность"]]//tr[td='I3.9']/td[3]
+
+I3.9 Значение показателя
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Международная деятельность"]]//tr[td='I3.9']/td[4]
+
+I3.10 (Международная деятельность)
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Международная деятельность"]]//tr[td='I3.10']/td[1]
+
+I3.10 Название
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Международная деятельность"]]//tr[td='I3.10']/td[2]
+
+I3.10 Единица измерения
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Международная деятельность"]]//tr[td='I3.10']/td[3]
+
+I3.10 Значение показателя
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Международная деятельность"]]//tr[td='I3.10']/td[4]
+
+I3.11 (Международная деятельность)
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Международная деятельность"]]//tr[td='I3.11']/td[1]
+
+I3.11 Название
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Международная деятельность"]]//tr[td='I3.11']/td[2]
+
+I3.11 Единица измерения
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Международная деятельность"]]//tr[td='I3.11']/td[3]
+
+I3.11 Значение показателя
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Международная деятельность"]]//tr[td='I3.11']/td[4]
+
+I3.12 (Международная деятельность)
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Международная деятельность"]]//tr[td='I3.12']/td[1]
+
+I3.12 Название
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Международная деятельность"]]//tr[td='I3.12']/td[2]
+
+I3.12 Единица измерения
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Международная деятельность"]]//tr[td='I3.12']/td[3]
+
+I3.12 Значение показателя
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Международная деятельность"]]//tr[td='I3.12']/td[4]
+
+I3.13 (Международная деятельность)
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Международная деятельность"]]//tr[td='I3.13']/td[1]
+
+I3.13 Название
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Международная деятельность"]]//tr[td='I3.13']/td[2]
+
+I3.13 Единица измерения
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Международная деятельность"]]//tr[td='I3.13']/td[3]
+
+I3.13 Значение показателя
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Международная деятельность"]]//tr[td='I3.13']/td[4]
+
+I4.1 (Финансово-экономическая деятельность)
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Финансово-экономическая деятельность"]]//tr[td='I4.1']/td[1]
+
+I4.1 Название
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Финансово-экономическая деятельность"]]//tr[td='I4.1']/td[2]
+
+I4.1 Единица измерения
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Финансово-экономическая деятельность"]]//tr[td='I4.1']/td[3]
+
+I4.1 Значение показателя
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Финансово-экономическая деятельность"]]//tr[td='I4.1']/td[4]
+
+I4.2 (Финансово-экономическая деятельность)
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Финансово-экономическая деятельность"]]//tr[td='I4.2']/td[1]
+
+I4.2 Название
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Финансово-экономическая деятельность"]]//tr[td='I4.2']/td[2]
+
+I4.2 Единица измерения
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Финансово-экономическая деятельность"]]//tr[td='I4.2']/td[3]
+
+I4.2 Значение показателя
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Финансово-экономическая деятельность"]]//tr[td='I4.2']/td[4]
+
+I4.3 (Финансово-экономическая деятельность)
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Финансово-экономическая деятельность"]]//tr[td='I4.3']/td[1]
+
+I4.3 Название
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Финансово-экономическая деятельность"]]//tr[td='I4.3']/td[2]
+
+I4.3 Единица измерения
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Финансово-экономическая деятельность"]]//tr[td='I4.3']/td[3]
+
+I4.3 Значение показателя
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Финансово-экономическая деятельность"]]//tr[td='I4.3']/td[4]
+
+I4.4 (Финансово-экономическая деятельность)
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Финансово-экономическая деятельность"]]//tr[td='I4.4']/td[1]
+
+I4.4 Название
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Финансово-экономическая деятельность"]]//tr[td='I4.4']/td[2]
+
+I4.4 Единица измерения
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Финансово-экономическая деятельность"]]//tr[td='I4.4']/td[3]
+
+I4.4 Значение показателя
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Финансово-экономическая деятельность"]]//tr[td='I4.4']/td[4]
+
+I5.1 (Инфраструктура)
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Инфраструктура"]]//tr[td='I5.1']/td[1]
+
+I5.1 Название
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Инфраструктура"]]//tr[td='I5.1']/td[2]
+
+I5.1 Единица измерения
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Инфраструктура"]]//tr[td='I5.1']/td[3]
+
+I5.1 Значение показателя
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Инфраструктура"]]//tr[td='I5.1']/td[4]
+
+I5.2 (Инфраструктура)
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Инфраструктура"]]//tr[td='I5.2']/td[1]
+
+I5.2 Название
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Инфраструктура"]]//tr[td='I5.2']/td[2]
+
+I5.2 Единица измерения
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Инфраструктура"]]//tr[td='I5.2']/td[3]
+
+I5.2 Значение показателя
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Инфраструктура"]]//tr[td='I5.2']/td[4]
+
+I5.3 (Инфраструктура)
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Инфраструктура"]]//tr[td='I5.3']/td[1]
+
+I5.3 Название
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Инфраструктура"]]//tr[td='I5.3']/td[2]
+
+I5.3 Единица измерения
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Инфраструктура"]]//tr[td='I5.3']/td[3]
+
+I5.3 Значение показателя
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Инфраструктура"]]//tr[td='I5.3']/td[4]
+
+I5.4 (Инфраструктура)
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Инфраструктура"]]//tr[td='I5.4']/td[1]
+
+I5.4 Название
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Инфраструктура"]]//tr[td='I5.4']/td[2]
+
+I5.4 Единица измерения
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Инфраструктура"]]//tr[td='I5.4']/td[3]
+
+I5.4 Значение показателя
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Инфраструктура"]]//tr[td='I5.4']/td[4]
+
+I5.5 (Инфраструктура)
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Инфраструктура"]]//tr[td='I5.5']/td[1]
+
+I5.5 Название
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Инфраструктура"]]//tr[td='I5.5']/td[2]
+
+I5.5 Единица измерения
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Инфраструктура"]]//tr[td='I5.5']/td[3]
+
+I5.5 Значение показателя
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Инфраструктура"]]//tr[td='I5.5']/td[4]
+
+I5.6 (Инфраструктура)
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Инфраструктура"]]//tr[td='I5.6']/td[1]
+
+I5.6 Название
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Инфраструктура"]]//tr[td='I5.6']/td[2]
+
+I5.6 Единица измерения
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Инфраструктура"]]//tr[td='I5.6']/td[3]
+
+I5.6 Значение показателя
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Инфраструктура"]]//tr[td='I5.6']/td[4]
+
+I5.7 (Инфраструктура)
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Инфраструктура"]]//tr[td='I5.7']/td[1]
+
+I5.7 Название
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Инфраструктура"]]//tr[td='I5.7']/td[2]
+
+I5.7 Единица измерения
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Инфраструктура"]]//tr[td='I5.7']/td[3]
+
+I5.7 Значение показателя
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Инфраструктура"]]//tr[td='I5.7']/td[4]
+
+I5.8 (Инфраструктура)
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Инфраструктура"]]//tr[td='I5.8']/td[1]
+
+I5.8 Название
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Инфраструктура"]]//tr[td='I5.8']/td[2]
+
+I5.8 Единица измерения
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Инфраструктура"]]//tr[td='I5.8']/td[3]
+
+I5.8 Значение показателя
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Инфраструктура"]]//tr[td='I5.8']/td[4]
+
+I6.1 (Трудоустройство)
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Трудоустройство"]]//tr[td='I6.1']/td[1]
+
+I6.1 Название
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Трудоустройство"]]//tr[td='I6.1']/td[2]
+
+I6.1 Единица измерения
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Трудоустройство"]]//tr[td='I6.1']/td[3]
+
+I6.1 Значение показателя
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Трудоустройство"]]//tr[td='I6.1']/td[4]
+
+I7.1 (Кадровый состав)
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Кадровый состав"]]//tr[td='I7.1']/td[1]
+
+I7.1 Название
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Кадровый состав"]]//tr[td='I7.1']/td[2]
+
+I7.1 Единица измерения
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Кадровый состав"]]//tr[td='I7.1']/td[3]
+
+I7.1 Значение показателя
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Кадровый состав"]]//tr[td='I7.1']/td[4]
+
+I7.2 (Кадровый состав)
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Кадровый состав"]]//tr[td='I7.2']/td[1]
+
+I7.2 Название
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Кадровый состав"]]//tr[td='I7.2']/td[2]
+
+I7.2 Единица измерения
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Кадровый состав"]]//tr[td='I7.2']/td[3]
+
+I7.2 Значение показателя
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Кадровый состав"]]//tr[td='I7.2']/td[4]
+
+I7.3 (Кадровый состав)
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Кадровый состав"]]//tr[td='I7.3']/td[1]
+
+I7.3 Название
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Кадровый состав"]]//tr[td='I7.3']/td[2]
+
+I7.3 Единица измерения
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Кадровый состав"]]//tr[td='I7.3']/td[3]
+
+I7.3 Значение показателя
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Кадровый состав"]]//tr[td='I7.3']/td[4]
+
+I7.4 (Кадровый состав)
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Кадровый состав"]]//tr[td='I7.4']/td[1]
+
+I7.4 Название
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Кадровый состав"]]//tr[td='I7.4']/td[2]
+
+I7.4 Единица измерения
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Кадровый состав"]]//tr[td='I7.4']/td[3]
+
+I7.4 Значение показателя
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Кадровый состав"]]//tr[td='I7.4']/td[4]
+
+I7.5 (Кадровый состав)
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Кадровый состав"]]//tr[td='I7.5']/td[1]
+
+I7.5 Название
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Кадровый состав"]]//tr[td='I7.5']/td[2]
+
+I7.5 Единица измерения
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Кадровый состав"]]//tr[td='I7.5']/td[3]
+
+I7.5 Значение показателя
+//table[@class='\''napde'\''][preceding-sibling::span[1][.="Кадровый состав"]]//tr[td='I7.5']/td[4]
+

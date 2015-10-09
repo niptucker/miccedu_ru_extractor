@@ -26,18 +26,24 @@ totalend="\033[0m";
 
 msgend="$totalend\033[35m";
 
-errorstart="$totalend\033[31m";
-successstart="$totalend\033[32m";
-notifystart="$totalend\033[37m";
+errorcolor="\033[31m";
+errorstart="$totalend$errorcolorer";
+emcolor="\033[33m";
+emstart="$totalend$emcolor";
+successcolor="\033[32m";
+successstart="$totalend$successcolor";
+notifycolor="\033[37m";
+notifystart="$totalend$notifycolor";
 
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
 #########################
 # Проверка зависимостей #
 #########################
-command -v wget >/dev/null 2>&1 || { echo -e >&2 $errorstart "\nТребуется программа 'wget'. Установите ее с помощью команды\n\n\tsudo apt-get install wget\n" $totalend; exit 1; }
-command -v recode >/dev/null 2>&1 || { echo -e >&2 $errorstart "\nТребуется программа 'recode'. Установите ее с помощью команды\n\n\tsudo apt-get install recode\n" $totalend; exit 1; }
-command -v parallel >/dev/null 2>&1 || { echo -e >&2 $errorstart "\nТребуется программа 'parallel'. Установите ее с помощью команды\n\n\tsudo apt-get install parallel\n" $totalend; exit 1; }
+command -v wget >/dev/null 2>&1 || { echo -e >&2 $errorstart"\nТребуется программа 'wget'. Установите ее с помощью команды\n\n\tsudo apt-get install wget\n"$totalend; exit 1; }
+command -v recode >/dev/null 2>&1 || { echo -e >&2 $errorstart"\nТребуется программа 'recode'. Установите ее с помощью команды\n\n\tsudo apt-get install recode\n"$totalend; exit 1; }
+command -v parallel >/dev/null 2>&1 || { echo -e >&2 $errorstart"\nТребуется программа 'parallel'. Установите ее с помощью команды\n\n\tsudo apt-get install parallel\n"$totalend; exit 1; }
+command -v xidel >/dev/null 2>&1 || { echo -e >&2 $errorstart"\nТребуется программа 'xidel'. Скачайте ее и установите, как написано на странице\n\n\thttp://videlibri.sourceforge.net/xidel.html#downloads\n"$totalend; exit 1; }
 
 ############################
 # Обработка входных данных #
@@ -46,19 +52,19 @@ url=$1
 criterion=$2
 
 echo -e $totalstart
-echo -e $notifystart"Ссылка на веб-страницу с ссылками на регионы: $url" $msgend
-echo -e $notifystart"Код показателя: $criterion" $msgend
+echo -e $notifystart"Ссылка на веб-страницу с ссылками на регионы: $emcolor$url"$msgend
+echo -e $notifystart"Код показателя: $emcolor$criterion"$msgend
 
 codename=year`basename "$url" | cut -d'?' -f2 | cut -d'&' -f2 | cut -d'=' -f2`
 
 dirname=$DIR/$codename"_dir"
-echo -e $notifystart"Каталог года: $dirname" $msgend
+echo -e $notifystart"Каталог года: $emcolor$dirname"$msgend
 
 urlfile=$dirname/$codename.html
-echo -e $notifystart"Страница года сохранится в $urlfile" $msgend
+echo -e $notifystart"Страница года сохранится в $emcolor$urlfile"$msgend
 
 regionsfile=$dirname/$codename.txt
-echo -e $notifystart"Список ссылок на регионы сохранится в $regionsfile" $msgend
+echo -e $notifystart"Список ссылок на регионы сохранится в $emcolor$regionsfile"$msgend
 
 mkdir -p "$dirname"
 
@@ -67,11 +73,11 @@ mkdir -p "$dirname"
 ########################################
 if [ ! -f "$urlfile" ]
 then
-    echo -e $notifystart"Скачивается страница $url:" "\n" $msgend
+    echo -e $notifystart"Скачивается страница $emcolor$url$msgend:"$msgend
     wget "$url" -nv -nc -O "$urlfile"
     recode -f cp1251..utf8 "$urlfile"
 else
-    echo -e $notifystart"Страница $url уже скачана:" "\n" $msgend
+    echo -e $notifystart"Страница $emcolor$url$notifystart $successcolorуже скачана$notifystart."$msgend
 fi
 
 ##############################################
@@ -79,7 +85,8 @@ fi
 ##############################################
 cat "$urlfile" | grep -Po 'material.php[^'"'"'\"]*' | awk -F\' '{print "http://indicators.miccedu.ru/monitoring/"$0}' > "$regionsfile"
 
-echo -e $successstart"Список ссылок на регионы сохранен в $regionsfile" "\n" $msgend
+echo -e $notifystart"Список ссылок на регионы сохранен в $emcolor$regionsfile$notifystart"$msgend
+echo
 
 ##############################################
 # Запуск обработчика файла со списком ссылок #

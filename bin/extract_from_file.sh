@@ -31,9 +31,14 @@ totalend="\033[0m";
 
 msgend="$totalend\033[35m";
 
-errorstart="$totalend\033[31m";
-successstart="$totalend\033[32m";
-notifystart="$totalend\033[37m";
+errorcolor="\033[31m";
+errorstart="$totalend$errorcolorer";
+emcolor="\033[33m";
+emstart="$totalend$emcolor";
+successcolor="\033[32m";
+successstart="$totalend$successcolor";
+notifycolor="\033[37m";
+notifystart="$totalend$notifycolor";
 
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
@@ -51,11 +56,11 @@ filename=`readlink -e $1`
 criterion=$2
 
 echo -e $totalstart
-echo -e $notifystart"Файл с ссылками на страницы вузов: $filename" $msgend
-echo -e $notifystart"Код показателя: $criterion" $msgend
+echo -e $notifystart"Файл с ссылками на страницы вузов: $emcolor$filename"$msgend
+echo -e $notifystart"Код показателя: $emcolor$criterion"$msgend
 
 dirname=$(dirname "$filename")
-echo -e $notifystart"Каталог региона: $dirname" $msgend
+echo -e $notifystart"Каталог региона: $emcolor$dirname"$msgend
 
 instsdir=$dirname/insts
 if [ ! -d "$instsdir" ]; then
@@ -68,12 +73,17 @@ fi
 ######################
 if [ -z "$3" ];
     then
-        csv="$dirname/$2.csv"
+        if [ -f "$criterion" ];
+        then
+            csv="$dirname/$(basename $criterion).csv"
+        else
+            csv="$dirname/$criterion.csv"
+        fi
     else
         csv="$3"
 fi
 
-if [ "$4" -neq "append" ] && [ "$4" -neq "a" ];
+if [ ! -z "$4" ] && [ "$4" -neq "append" ] && [ "$4" -neq "a" ];
     then
         echo -e -n > "$csv"
 fi
@@ -83,11 +93,12 @@ fi
 ################################
 # delimiter=";"
 delimiter="\t"
-echo -e $notifystart"Просматриваем файлы каждого вуза и заполняем CSV-файл $csv:" $msgend
+echo -e $notifystart"Просматриваем файлы каждого вуза и заполняем CSV-файл $emcolor$csv$notifystart:"$msgend
+echo
 while read -r link; do
     link=$(echo $link | sed -e "s/\r//g")
 
-    echo -e $notifystart"Ссылка $link: " $msgend
+    echo -e $notifystart"Ссылка $emcolor$link$notifystart: "$msgend
 
     ################################
     # Скачивание всех ссылок вузов #
@@ -101,55 +112,86 @@ while read -r link; do
         recode -f cp1251..utf8 "$linkfile"
     fi
 
-    ################################
-    # Записываем название региона и разделитель #
-    ################################
-    name=`cat $linkfile | sed 's/[\ \n\r\s]\+/\ /g' | grep -E -m1 "material.php[^<]+>[^<]+" -A10 -o | grep -o -E ">.*" | grep -o -E "[^>]*" | xargs`
-    echo -e -n $name >> $csv
-    echo -e -n $delimiter >> $csv
 
-    echo -e $successstart"Регион '$name' " $msgend
+    if [ ! -f "$criterion" ]
+    then
+        ################################
+        # Записываем название региона и разделитель #
+        ################################
+        name=`cat $linkfile | sed 's/[\ \n\r\s]\+/\ /g' | grep -E -m1 "material.php[^<]+>[^<]+" -A10 -o | grep -o -E ">.*" | grep -o -E "[^>]*" | xargs`
+        echo -e -n $name >> $csv
+        echo -e -n $delimiter >> $csv
 
-
-    ################################
-    # Записываем название вуза и разделитель #
-    ################################
-    name=`cat $linkfile | sed 's/[\ \n\r\s]\+/\ /g' | grep 'Регион' -A10 | grep 'Регион,' -m1 -B10 | grep -v -E '(Наименование образовательной организации)' | tr "\\n\"" " " | sed 's/^ *//;s/ *$//' | sed 's/;/,/g' | sed 's/[\ \n\r\s]\+/\ /g' | sed 's|<[^>]*>||g' | sed 's/Регион,адрес//g' | xargs`
-    echo -e -n $name >> $csv
-    echo -e -n $delimiter >> $csv
-
-    echo -e $successstart"Вуз '$name' " $msgend
+        echo -e $successstart"Регион '$emcolor$name$notifystart' "$msgend
 
 
-    ################################
-    # Записываем статус вуза и разделитель #
-    ################################
-    # name=`cat $linkfile | sed 's/[\ \n\r\s]\+/\ /g' | grep 'Регион' -A10 | grep 'Регион,' -m1 -B10 | grep -v -E '(Наименование образовательной организации)' | tr "\\n\"" " " | sed 's/^ *//;s/ *$//' | sed 's/;/,/g' | sed 's/[\ \n\r\s]\+/\ /g' | sed 's|<[^>]*>||g' | sed 's/Регион,адрес//g' | xargs`
-    # echo -e -n $name >> $csv
-    # echo -e -n $delimiter >> $csv
+        ################################
+        # Записываем название вуза и разделитель #
+        ################################
+        name=`cat $linkfile | sed 's/[\ \n\r\s]\+/\ /g' | grep 'Регион' -A10 | grep 'Регион,' -m1 -B10 | grep -v -E '(Наименование образовательной организации)' | tr "\\n\"" " " | sed 's/^ *//;s/ *$//' | sed 's/;/,/g' | sed 's/[\ \n\r\s]\+/\ /g' | sed 's|<[^>]*>||g' | sed 's/Регион,адрес//g' | xargs`
+        echo -e -n $name >> $csv
+        echo -e -n $delimiter >> $csv
 
-    # echo -e $successstart"Вуз '$name' " $msgend
-
-
-    ######################################
-    # Записываем имя ссылки и разделитель #
-    ######################################
-    echo -e -n $link >> $csv
-    echo -e -n $delimiter >> $csv
+        echo -e $successstart"Вуз '$emcolor$name$notifystart' "$msgend
 
 
-    ###################################################################
-    # Записываем значение показателя и перенос строки (автоматически) #
-    ###################################################################
-    value=`cat $linkfile | grep -F "$criterion" -A20 -m1 | grep "</tr>" -B20 -m2 | head --lines=-1 | sed 's|<[^>]*>|~|g' | xargs | sed 's|<[^>]*>|~|g' | sed -E 's|\s+| |g' | sed -E 's|( *~+ *)+|~|g' | awk -F~ '{print $4" -- "$5"--"$6}'`
-    echo -e $value | sed "s| *-- *|\t|g" >> $csv
+        ################################
+        # Записываем статус вуза и разделитель #
+        ################################
+        # name=`cat $linkfile | sed 's/[\ \n\r\s]\+/\ /g' | grep 'Регион' -A10 | grep 'Регион,' -m1 -B10 | grep -v -E '(Наименование образовательной организации)' | tr "\\n\"" " " | sed 's/^ *//;s/ *$//' | sed 's/;/,/g' | sed 's/[\ \n\r\s]\+/\ /g' | sed 's|<[^>]*>||g' | sed 's/Регион,адрес//g' | xargs`
+        # echo -e -n $name >> $csv
+        # echo -e -n $delimiter >> $csv
 
-    echo -e $successstart"$criterion -> $value " $msgend
+        # echo -e $successstart"Вуз '$name' "$msgend
+
+
+        ######################################
+        # Записываем имя ссылки и разделитель #
+        ######################################
+        echo -e -n $link >> $csv
+        echo -e -n $delimiter >> $csv
+
+
+        ###################################################################
+        # Записываем значение показателя и перенос строки (автоматически) #
+        ###################################################################
+        value=`cat $linkfile | grep -F "$criterion" -A20 -m1 | grep "</tr>" -B20 -m2 | head --lines=-1 | sed 's|<[^>]*>|~|g' | xargs | sed 's|<[^>]*>|~|g' | sed -E 's|\s+| |g' | sed -E 's|( *~+ *)+|~|g' | awk -F~ '{print $4" -- "$5"--"$6}'`
+        echo -e -n $value | sed "s| *-- *|\t|g" >> "$csv"
+
+        echo -e $successstart"$criterion -> $value "$msgend
+
+    else
+        echo -e -n $link >> $csv
+        echo -e -n $delimiter >> $csv
+
+        while IFS=$'\t'  read title expression
+        do
+            # echo -e "Processing map: $title -> $expression" "\n"
+
+            # set -x #echo on
+            value=`xidel -q "$linkfile" -e "$(echo -e $expression)" | tr "\n" " " | sed 's/^[[:space:]]*//;s/[[:space:]]*$//'`
+            # set +x #echo off
+
+            # value=`echo -e $value | tr "\n" " " | xargs`
+            echo -e -n "$value" >> "$csv"
+            echo -e -n "$delimiter" >> "$csv"
+
+            echo -e -n $successstart"$title: "$msgend
+            echo -e -n $emstart"$value"$msgend
+            echo
+
+        done < <(cat $DIR/../conf/map.txt | sed ':a;N;$!ba;s/\n/\t/g' | sed 's:\t\t:\n:g')
+
+    fi
+
+    echo -e >> "$csv"
+
+    echo
+
 done < "$filename"
 
-echo -e $successstart"\n\nCSV-файл сохранен в $csv " $msgend
+echo -e -n $successstart"\n\nCSV-файл сохранен в "$msgend
+echo -e -n $emstart"$csv"$msgend
+echo
 
 echo -e $totalend
-
-# echo -e "\n\n"
-# cat $csv
