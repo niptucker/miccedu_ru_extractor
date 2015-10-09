@@ -14,6 +14,7 @@ if [ $# -eq 0 ]
 
 Пример запуска:
 ./extract_from_year.sh "http://indicators.miccedu.ru/monitoring/" "I7.3"
+./extract_from_year.sh "http://indicators.miccedu.ru/monitoring/" "../conf/map.txt"
 '
     exit
 fi

@@ -15,7 +15,7 @@ E.$i Пороговое значение
 //table[@id='result']//tr[td='E.$i']/td[4]
 
 E.$i Относительно прошлого года
-//table[@id='result']//tr[td='E.$i']/td[4]
+//table[@id='result']//tr[td='E.$i']/td[5]
 
 EOF
 
