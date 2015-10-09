@@ -50,7 +50,7 @@ mkdir -p "$dirname"
 ########################################
 # Скачивание страницы региона с вузами #
 ########################################
-if [ ! -f "$urlfile" ]
+if [ ! -s "$urlfile" ]
 then
     echo -e $notifystart"Скачивается страница $emcolor$url$msgend:"$msgend
     wget "$url" -nv -nc -O "$urlfile"

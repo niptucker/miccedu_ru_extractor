@@ -90,7 +90,7 @@ while read -r link; do
     linkname=$(basename $link)
     linkfile=$instsdir/$linkname
 
-    if [ ! -f "$linkfile" ]
+    if [ ! -s "$linkfile" ]
     then
         wget "$link" -nv -nc -O "$linkfile"
         recode -f cp1251..utf8 "$linkfile"
