@@ -32,7 +32,7 @@ E.1 Пороговое значение
 //table[@id='result']//tr[td='E.1']/td[4]
 
 E.1 Относительно прошлого года
-//table[@id='result']//tr[td='E.1']/td[4]
+//table[@id='result']//tr[td='E.1']/td[5]
 
 E.2
 //table[@id='result']//tr[td='E.2']/td[1]
@@ -47,7 +47,7 @@ E.2 Пороговое значение
 //table[@id='result']//tr[td='E.2']/td[4]
 
 E.2 Относительно прошлого года
-//table[@id='result']//tr[td='E.2']/td[4]
+//table[@id='result']//tr[td='E.2']/td[5]
 
 E.3
 //table[@id='result']//tr[td='E.3']/td[1]
@@ -62,7 +62,7 @@ E.3 Пороговое значение
 //table[@id='result']//tr[td='E.3']/td[4]
 
 E.3 Относительно прошлого года
-//table[@id='result']//tr[td='E.3']/td[4]
+//table[@id='result']//tr[td='E.3']/td[5]
 
 E.4
 //table[@id='result']//tr[td='E.4']/td[1]
@@ -77,7 +77,7 @@ E.4 Пороговое значение
 //table[@id='result']//tr[td='E.4']/td[4]
 
 E.4 Относительно прошлого года
-//table[@id='result']//tr[td='E.4']/td[4]
+//table[@id='result']//tr[td='E.4']/td[5]
 
 E.5
 //table[@id='result']//tr[td='E.5']/td[1]
@@ -92,7 +92,7 @@ E.5 Пороговое значение
 //table[@id='result']//tr[td='E.5']/td[4]
 
 E.5 Относительно прошлого года
-//table[@id='result']//tr[td='E.5']/td[4]
+//table[@id='result']//tr[td='E.5']/td[5]
 
 E.6
 //table[@id='result']//tr[td='E.6']/td[1]
@@ -107,7 +107,7 @@ E.6 Пороговое значение
 //table[@id='result']//tr[td='E.6']/td[4]
 
 E.6 Относительно прошлого года
-//table[@id='result']//tr[td='E.6']/td[4]
+//table[@id='result']//tr[td='E.6']/td[5]
 
 E.7
 //table[@id='result']//tr[td='E.7']/td[1]
@@ -122,7 +122,7 @@ E.7 Пороговое значение
 //table[@id='result']//tr[td='E.7']/td[4]
 
 E.7 Относительно прошлого года
-//table[@id='result']//tr[td='E.7']/td[4]
+//table[@id='result']//tr[td='E.7']/td[5]
 
 E.8
 //table[@id='result']//tr[td='E.8']/td[1]
@@ -137,7 +137,7 @@ E.8 Пороговое значение
 //table[@id='result']//tr[td='E.8']/td[4]
 
 E.8 Относительно прошлого года
-//table[@id='result']//tr[td='E.8']/td[4]
+//table[@id='result']//tr[td='E.8']/td[5]
 
 I1.1 (Образовательная деятельность)
 //table[@class='napde'][preceding-sibling::span[1][.="Образовательная деятельность"]]//tr[td='I1.1']/td[1]
