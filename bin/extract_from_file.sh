@@ -23,7 +23,7 @@ if [ $# -eq 0 ]
 
 ./extract_from_file.sh "example/institutes_list.txt" "I7.3"
 
-./extract_from_file.sh "example/institutes_list.txt" "I7.3"
+./extract_from_file.sh "example/institutes_list.txt" "../conf/map.txt"
 '
     exit
 fi
