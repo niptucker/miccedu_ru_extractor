@@ -63,7 +63,11 @@ fi
 ##############################################
 # Сохранение ссылок на страницы вузов в файл #
 ##############################################
-cat "$urlfile" | grep -Po 'material.php[^'"'"'\"]*' | awk -F\' '{print "http://indicators.miccedu.ru/monitoring/"$0}' > "$regionsfile"
+url_base=`echo $url | sed 's:[^/]*$::'`
+#echo Url base: $url_base
+cat "$urlfile" | grep -Po '[^'"'"'\"]*material.php[^'"'"'\"]*' | awk -F\' -v url_base="$url_base" '{print url_base$0}' | tee "$regionsfile"
+
+#exit
 
 echo -e $notifystart"Список ссылок на регионы сохранен в $emcolor$regionsfile$notifystart"$msgend
 echo

@@ -74,7 +74,9 @@ fi
 ##############################################
 # Сохранение ссылок на страницы вузов в файл #
 ##############################################
-cat "$urlfile" | grep -E 'inst.php' | awk -F\' '{print "http://indicators.miccedu.ru/monitoring/"$2}' > "$linksfile"
+url_base=`echo $url | sed 's:[^/]*$::'`
+echo Url base: $url_base
+cat "$urlfile" | grep -Po '[^'"'"'\"]*inst.php[^'"'"'\"]*' | awk -F\' -v url_base="$url_base" '{print url_base$0}' > "$linksfile"
 
 echo -e $notifystart"Список страниц вузов сохранен в $emcolor$linksfile"$msgend
 
