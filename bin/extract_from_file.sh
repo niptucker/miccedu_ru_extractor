@@ -88,7 +88,7 @@ while read -r link; do
     ################################
     # Скачивание всех ссылок вузов #
     ################################
-    linkname=$(basename $link)
+    linkname=`basename $link | cut -d'?' -f2 | cut -d'&' -f2 | cut -d'=' -f2`
     linkfile=$instsdir/$linkname
 
     if [ ! -s "$linkfile" ]
