@@ -93,7 +93,7 @@ while read -r link; do
 
     if [ ! -s "$linkfile" ]
     then
-        wget "$link" -nv -nc -O "$linkfile"
+        wget "$link" -v -nc -O "$linkfile"
         recode -f cp1251..utf8 "$linkfile"
     fi
 
