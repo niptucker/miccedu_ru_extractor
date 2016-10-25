@@ -1,22 +1,24 @@
 #!/bin/bash
 names=(
+    'Образовательная деятельность 1'
+    'Образовательная деятельность 1 (доп)'
     'Образовательная деятельность'
-    'Научно-исследовательская деятельность'
+    'Научная деятельность'
+    'Кадровый потенциал'
     'Международная деятельность'
-    'Финансово-экономическая деятельность'
     'Инфраструктура'
-    'Трудоустройство'
-    'Кадровый состав'
+    'Финансово-экономическая деятельность'
 )
 
 nums=(
-    'seq 1 15'
-    'seq 1 16'
-    'seq 1 13'
-    'seq 1 4'
-    'seq 1 8'
     'seq 1 1'
-    'seq 1 5'
+    'seq 1 3'
+    'seq 2 9'
+    'seq 10 20'
+    'seq 21 29'
+    'seq 30 38'
+    'seq 39 47'
+    'seq 48 56'
 )
 
 for i in "${!names[@]}"; do
@@ -26,23 +28,42 @@ for i in "${!names[@]}"; do
 
     for j in `${nums[$i]}`; do
 
-    cat <<EOF
-I$num.$j (${names[$i]})
-//table[@class='napde'][preceding-sibling::span[1][.="${names[$i]}"]]//tr[td='I$num.$j']/td[1]
+# $j (${names[$i]})
+# //table[@id='analis_dop']//tbody//tr[not(td[@class='sec'])][td[last()-3]='$j']/td[last()-3]
 
-I$num.$j Название
-//table[@class='napde'][preceding-sibling::span[1][.="${names[$i]}"]]//tr[td='I$num.$j']/td[2]
 
-I$num.$j Единица измерения
-//table[@class='napde'][preceding-sibling::span[1][.="${names[$i]}"]]//tr[td='I$num.$j']/td[3]
 
-I$num.$j Значение показателя
-//table[@class='napde'][preceding-sibling::span[1][.="${names[$i]}"]]//tr[td='I$num.$j']/td[4]
+        if [[ "$i" -eq "1" ]]; then
+            cat <<EOF
+$j Название
+//table[@id='analis_dop']//tbody//tr[not(td[@class='sec'])][not(td[last()-3])][$j]/td[last()-2]
+
+$j Единица измерения
+//table[@id='analis_dop']//tbody//tr[not(td[@class='sec'])][not(td[last()-3])][$j]/td[last()-1]
+
+$j Значение показателя
+//table[@id='analis_dop']//tbody//tr[not(td[@class='sec'])][not(td[last()-3])][$j]/td[last()]
 
 EOF
 
-    done
+        else
+            cat <<EOF
+$j (${names[$i]})
+//table[@id='analis_dop']//tbody//tr[not(td[@class='sec'])][td[last()-3]='$j']/td[last()-3]
 
+$j Название
+//table[@id='analis_dop']//tbody//tr[not(td[@class='sec'])][td[last()-3]='$j']/td[last()-2]
+
+$j Единица измерения
+//table[@id='analis_dop']//tbody//tr[not(td[@class='sec'])][td[last()-3]='$j']/td[last()-1]
+
+$j Значение показателя
+//table[@id='analis_dop']//tbody//tr[not(td[@class='sec'])][td[last()-3]='$j']/td[last()]
+
+EOF
+
+        fi
+    done
 
 done
 

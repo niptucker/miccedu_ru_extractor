@@ -27,17 +27,17 @@ for i in "${!names[@]}"; do
     for j in `${nums[$i]}`; do
 
     cat <<EOF
-I$num.$j (${names[$i]})
-//table[@class='napde'][preceding-sibling::span[1][.="${names[$i]}"]]//tr[td='I$num.$j']/td[1]
+$num.$j (${names[$i]})
+//table[@class='napde'][preceding-sibling::span[1][.="${names[$i]}"]]//tr[td='$num.$j']/td[1]
 
-I$num.$j Название
-//table[@class='napde'][preceding-sibling::span[1][.="${names[$i]}"]]//tr[td='I$num.$j']/td[2]
+$num.$j Название
+//table[@class='napde'][preceding-sibling::span[1][.="${names[$i]}"]]//tr[td='$num.$j']/td[2]
 
-I$num.$j Единица измерения
-//table[@class='napde'][preceding-sibling::span[1][.="${names[$i]}"]]//tr[td='I$num.$j']/td[3]
+$num.$j Единица измерения
+//table[@class='napde'][preceding-sibling::span[1][.="${names[$i]}"]]//tr[td='$num.$j']/td[3]
 
-I$num.$j Значение показателя
-//table[@class='napde'][preceding-sibling::span[1][.="${names[$i]}"]]//tr[td='I$num.$j']/td[4]
+$num.$j Значение показателя
+//table[@class='napde'][preceding-sibling::span[1][.="${names[$i]}"]]//tr[td='$num.$j']/td[4]
 
 EOF
 
