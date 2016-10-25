@@ -67,7 +67,8 @@ if [ -z "$3" ];
         csv="$3"
 fi
 
-if [ ! -z "$4" ] && [ "$4" -neq "append" ] && [ "$4" -neq "a" ];
+# echo "<$4>"
+if [[ ! -z "$4" && "$4" -ne "append" && "$4" -ne "a" ]];
     then
         echo -e -n > "$csv"
 fi
