@@ -97,9 +97,17 @@ while read -r link; do
         recode -f cp1251..utf8 "$linkfile"
     fi
 
+    if [ ! -s "$linkfile" ]; then
 
-    if [ ! -f "$criterion" ]
-    then
+        echo -e $notifystart"Ссылка $emcolor$link$errorstart не скачана в файл $linkfile "$msgend
+
+    else
+      if false; then
+
+          echo "$link -> $linkfile"
+
+      elif [ ! -f "$criterion" ]; then
+
         ################################
         # Записываем название региона и разделитель #
         ################################
@@ -145,7 +153,7 @@ while read -r link; do
 
         echo -e $successstart"$criterion -> $value "$msgend
 
-    else
+      else
         echo -e -n $link >> $csv
         echo -e -n $delimiter >> $csv
 
@@ -167,6 +175,7 @@ while read -r link; do
 
         done < <(cat $DIR/../conf/map.txt | sed ':a;N;$!ba;s/\n/\t/g' | sed 's:\t\t:\n:g')
 
+      fi
     fi
 
     echo -e >> "$csv"
