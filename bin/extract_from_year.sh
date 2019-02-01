@@ -65,7 +65,7 @@ fi
 ##############################################
 url_base=`echo $url | sed 's:[^/]*$::'`
 #echo Url base: $url_base
-cat "$urlfile" | grep -Po '[^'"'"'\"]*material.php[^'"'"'\"]*' | awk -F\' -v url_base="$url_base" '{print url_base$0}' | tee "$regionsfile"
+cat "$urlfile" | grep -Po '[^'"'"'\"]*material.php\?type=1[^'"'"'\"]*' | awk -F\' -v url_base="$url_base" '{print url_base$0}' | tee "$regionsfile"
 
 #exit
 
