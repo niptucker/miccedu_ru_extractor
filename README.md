@@ -3,6 +3,17 @@
 # Извлечение данных с [сайта мониторинга эффективности вузов](http://indicators.miccedu.ru/monitoring/) за 2015 год
 
 ## Как пользоваться:
+### Кратко (tl;dr)
+Как извлечь данные сразу за год:
+
+ ```bash
+git clone https://github.com/niptucker/miccedu_ru_extractor.git
+cd miccedu_ru_extractor/bin
+./run_extract.sh
+```
+
+
+### Подробно (по шагам)
 1. Откройте терминал
 1. Скачайте это приложение в какую-нибудь папку:
 
@@ -14,11 +25,38 @@ git clone https://github.com/niptucker/miccedu_ru_extractor.git
  ```bash
 cd miccedu_ru_extractor/bin
 ```
-3. Выберите нужный скрипт для извлечения значений показатей.
 
- Есть два скрипта: `extract_from_web.sh` и `extract_from_file.sh`
- 
- ### extract_from_web.sh
+3. <del>Выберите нужный скрипт для извлечения значений показатей.</del> Запустите скрипт `run_extract.sh`.
+
+Он запустит скрипт извлечения всех данных за данный год (`extract_from_year.sh`)
+
+
+
+## Документация (еще подробнее)
+
+### Подготовка к работе
+ ```bash
+git clone https://github.com/niptucker/miccedu_ru_extractor.git
+cd miccedu_ru_extractor/bin
+```
+
+### Обычный запуск - извлечение данных за текущий год
+
+```
+./run_extract.sh
+```
+
+
+### Подробное описание скриптов:
+Есть два вспомогательных скрипта
+
+
+### Извлечение данных по отдельному показателю по вузам определенного региона
+```bash
+./extract_from_web.sh "http://indicators.miccedu.ru/monitoring/material.php?type=2&id=10201" "I7.3"
+```
+
+#### extract_from_web.sh
  Первый — `extract_from_web.sh` — анализирует страницу региона ([список регионов](http://indicators.miccedu.ru/monitoring/)), скачивает страницы всех вузов выбранного региона и извлекает значение выбранного показателя из всех этих страниц.
  
  На вход скрипту подаются:
@@ -40,7 +78,16 @@ cd miccedu_ru_extractor/bin
 
  Итоговый csv-файл `I7.3.csv` будет создан в новом каталоге `region10201_dir` (где `10201` - номер региона)
 
- ### extract_from_file.sh
+
+
+
+
+### Извлечение данных по отдельному показателю по определенным вузам (по списку с ссылками на вузы)
+ ```bash
+./extract_from_file.sh "example/institutes_list.txt" "I7.3"
+```
+
+#### extract_from_file.sh
  Второй — `extract_from_file.sh` — скачивает перечисленные в указанном файле страницы вузов и извлекает значение выбранного показателя из этих страниц.
  
  На вход скрипту подаются:
@@ -64,13 +111,3 @@ cd miccedu_ru_extractor/bin
 
   Итоговый csv-файл `I7.3.csv` будет создан в том же каталоге, что и указанный файл (т. е. в каталоге `example`)
 
-###Кратко
-Скачайте
- ```bash
-git clone https://github.com/niptucker/miccedu_ru_extractor.git
-cd miccedu_ru_extractor/bin
-```
-
-Eсли надо извлечь данные по региону, используйте `extract_from_web.sh`.
-
-А если у вас есть список ссылок на вузы, сохраните их в файл и используйте `extract_from_file.sh`.
