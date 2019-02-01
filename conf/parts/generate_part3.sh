@@ -28,7 +28,7 @@ for i in "${!names[@]}"; do
 
     cat <<EOF
 $num.$j (${names[$i]})
-//table[@class='napde'][preceding-sibling::span[1][.="${names[$i]}"]]//tr[td='$num.$j']/td[1]
+//table[@class='napde'][preceding-sibling::span[1][.="${names[$i]}"]]//tr[td='$num.$j']/concat("'", td[1])
 
 $num.$j Название
 //table[@class='napde'][preceding-sibling::span[1][.="${names[$i]}"]]//tr[td='$num.$j']/td[2]
