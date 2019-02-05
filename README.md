@@ -1,6 +1,8 @@
 # ВОЗМОЖНО, УСТАРЕЛО!
 
-# Извлечение данных с [сайта мониторинга эффективности вузов](http://indicators.miccedu.ru/monitoring/) за 2015 год
+# Извлечение данных с [сайта мониторинга эффективности вузов](http://indicators.miccedu.ru/monitoring/?m=vpo)
+
+Доступны версии 2014 &mdash; 2018 годов
 
 ## Как пользоваться:
 ### Кратко (tl;dr)
@@ -15,18 +17,27 @@ cd miccedu_ru_extractor/bin
 
 ### Подробно (по шагам)
 1. Откройте терминал
-1. Скачайте это приложение в какую-нибудь папку:
+2. Скачайте это приложение в какую-нибудь папку:
 
  ```bash
 git clone https://github.com/niptucker/miccedu_ru_extractor.git
 ```
-2. Перейдите в каталог `miccedu_ru_extractor/bin`:
+
+3. Если нужно, переключитесь на нужную версию, например, 2018 года:
+ ```bash
+git checkout 5.0.0-2018-alpha
+```
+
+Список всех версии см. ниже
+
+
+4. Перейдите в каталог `miccedu_ru_extractor/bin`:
 
  ```bash
 cd miccedu_ru_extractor/bin
 ```
 
-3. <del>Выберите нужный скрипт для извлечения значений показатей.</del> Запустите скрипт `run_extract.sh`.
+5. <del>Выберите нужный скрипт для извлечения значений показатей.</del> Запустите скрипт `run_extract.sh`.
 
 Он запустит скрипт извлечения всех данных за данный год (`extract_from_year.sh`)
 
@@ -47,7 +58,30 @@ cd miccedu_ru_extractor/bin
 ```
 
 
-### Подробное описание скриптов:
+
+
+
+
+
+
+
+
+### Выбор версии (года)
+Чтобы выбрать версию определенного года, нужно переключить репозиторий на указанный релиз:
+`git checkout *релиз*`
+
+Список доступных релизов:
+
+| Год  | Код для переключения на нужную версию | Ссылка на релиз
+|------|---------------------------------------|-----------------
+| 2018 |`git checkout 5.0.0-2018-alpha`        | [5.0.0-2018-alpha](https://github.com/niptucker/miccedu_ru_extractor/releases/tag/5.0.0-2018-alpha)
+| 2017 |`git checkout 4.0.0-2017-alpha`        | [4.0.0-2017-alpha](https://github.com/niptucker/miccedu_ru_extractor/releases/tag/4.0.0-2017-alpha) 
+| 2016 |`git checkout 3.0.0`                   | [3.0.0](https://github.com/niptucker/miccedu_ru_extractor/releases/tag/3.0.0)
+| 2015 |`git checkout 2.0.0`                   | [2.0.0](https://github.com/niptucker/miccedu_ru_extractor/releases/tag/2.0.0)
+| 2014 |`git checkout 1.0.0`                   | [1.0.0](https://github.com/niptucker/miccedu_ru_extractor/releases/tag/1.0.0)
+
+
+### Вспомогательные скрипты
 Есть два вспомогательных скрипта
 
 
